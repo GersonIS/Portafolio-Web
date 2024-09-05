@@ -1,9 +1,11 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const sections = ["inicio", "skills", "projects", "contact"];
+  const activeSection = useActiveSection(sections);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -17,36 +19,25 @@ const Navbar: React.FC = () => {
           <div className="flex-shrink-0">
             <a href="/">
               {/* Reemplaza '/logo.png' con la ruta de tu logo */}
-              <Image src="/logo.jfif" alt="Logo" width={60} height={60} />
+              <Image src="/logo.jpg" alt="Logo" width={64} height={64} />
             </a>
           </div>
           {/* Menú */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
-              <a
-                href="#inicio"
-                className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-              >
-                Inicio
-              </a>
-              <a
-                href="#skills"
-                className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-              >
-                Skills
-              </a>
-              <a
-                href="#projects"
-                className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-              >
-                Projects
-              </a>
-              <a
-                href="#contact"
-                className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-              >
-                Contact
-              </a>
+              {sections.map((section) => (
+                <a
+                  key={section}
+                  href={`#${section}`}
+                  className={`${
+                    activeSection === section
+                      ? "text-teal-400"
+                      : "text-gray-300 hover:bg-gray-700 hover:text-white"
+                  } px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300`}
+                >
+                  {section.charAt(0).toUpperCase() + section.slice(1)}
+                </a>
+              ))}
             </div>
           </div>
           {/* Botón móvil */}
@@ -102,30 +93,19 @@ const Navbar: React.FC = () => {
       {isOpen && (
         <div className="md:hidden" id="mobile-menu">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <a
-              href="#inicio"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-            >
-              Inicio
-            </a>
-            <a
-              href="#skills"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-            >
-              Skills
-            </a>
-            <a
-              href="#projects"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-            >
-              Projects
-            </a>
-            <a
-              href="#contact"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-            >
-              Contact
-            </a>
+            {sections.map((section) => (
+              <a
+                key={section}
+                href={`#${section}`}
+                className={`${
+                  activeSection === section
+                    ? "text-teal-400"
+                    : "text-gray-300 hover:bg-gray-700 hover:text-white"
+                } block px-3 py-2 rounded-md text-base font-medium transition-colors duration-300`}
+              >
+                {section.charAt(0).toUpperCase() + section.slice(1)}
+              </a>
+            ))}
           </div>
         </div>
       )}
@@ -134,3 +114,30 @@ const Navbar: React.FC = () => {
 };
 
 export default Navbar;
+
+export const useActiveSection = (sections: string[]) => {
+  const [activeSection, setActiveSection] = useState("");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      let currentSection = "";
+      sections.forEach((section) => {
+        const element = document.getElementById(section);
+        const rect = element?.getBoundingClientRect();
+        if (
+          rect &&
+          rect.top <= window.innerHeight / 2 &&
+          rect.bottom >= window.innerHeight / 2
+        ) {
+          currentSection = section;
+        }
+      });
+      setActiveSection(currentSection);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [sections]);
+
+  return activeSection;
+};

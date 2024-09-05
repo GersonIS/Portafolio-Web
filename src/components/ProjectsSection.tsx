@@ -8,49 +8,49 @@ const projects = [
   {
     name: "Project One",
     description: "A web application built with React and Node.js.",
-    image: "/proyecto.jpg",
+    image: "/project1.png",
     liveLink: "https://paraiso-one.vercel.app/",
     githubLink: "https://github.com/GersonIS/Paraiso",
   },
   {
     name: "Project Two",
     description: "A mobile app developed using React Native.",
-    image: "/proyecto.jpg",
+    image: "/project2.png",
     liveLink: "https://inventario-alpha.vercel.app/",
     githubLink: "https://github.com/GersonIS/Inventario",
   },
   {
     name: "Project Three",
     description: "An e-commerce platform built with Next.js and Tailwind CSS.",
-    image: "/proyecto.jpg",
+    image: "/project3.png",
     liveLink: "https://pokemon-next-flame.vercel.app/",
     githubLink: "https://github.com/GersonIS/Pokemon-Next",
   },
   {
     name: "Project Four",
     description: "A blog website using Flask and SQLAlchemy.",
-    image: "/proyecto.jpg",
+    image: "/project4.png",
     liveLink: "https://anfabv.vercel.app/",
     githubLink: "https://github.com/GersonIS/TesisVenta",
   },
   {
     name: "Project Five",
     description: "A portfolio website built with Gatsby and GraphQL.",
-    image: "/proyecto.jpg",
+    image: "/project5.png",
     liveLink: "https://gerson-rodriguez.vercel.app/",
     githubLink: "https://github.com/GersonIS/Portafolio",
   },
   {
     name: "Project Six",
     description: "A task management tool developed using Laravel.",
-    image: "/proyecto.jpg",
+    image: "/project6.png",
     liveLink: "https://muebleria-alpha.vercel.app/",
     githubLink: "https://github.com/GersonIS/muebleria",
   },
   {
     name: "Project Seven",
     description: "A social networking site using Django and React.",
-    image: "/proyecto.jpg",
+    image: "/project7.png",
     liveLink: "https://regeja.vercel.app/",
     githubLink: "https://github.com/GersonIS/Ecommerce",
   },
@@ -101,8 +101,8 @@ const ProjectCard: React.FC<{ project: any; delay: number }> = ({
   delay,
 }) => {
   const { ref, inView } = useInView({
-    threshold: 0.2, // Se activa cuando el 20% del componente es visible
-    triggerOnce: false, // Permite que la animación se repita
+    threshold: 0.1,
+    triggerOnce: false,
   });
 
   return (
@@ -111,7 +111,7 @@ const ProjectCard: React.FC<{ project: any; delay: number }> = ({
       className="bg-gray-800 p-6 rounded-lg shadow-lg"
       initial={{ opacity: 0, y: 50 }}
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-      transition={{ duration: 0.5, delay }}
+      transition={{ duration: 0.2, delay }} // Reducir la duración a 0.2s
     >
       <Image
         src={project.image}
