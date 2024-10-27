@@ -35,19 +35,19 @@ const projects = [
     githubLink: "https://github.com/GersonIS/Pokemon-Next",
   },
   {
-    name: "Ferreteria",
+    name: "Ferreteria(AGREGAR CONEXION A BD)",
     description: "E-commerce para venta de productos de ferreteria",
     image: "/project4.png",
     liveLink: "https://anfabv.vercel.app/",
     githubLink: "https://github.com/GersonIS/TesisVenta",
   },
-  {
-    name: "Muebleria",
-    description: "Venta de muebles en general para el hogar",
-    image: "/project6.png",
-    liveLink: "https://muebleria-alpha.vercel.app/",
-    githubLink: "https://github.com/GersonIS/muebleria",
-  },
+  // {
+  //   name: "Muebleria",
+  //   description: "Venta de muebles en general para el hogar",
+  //   image: "/project6.png",
+  //   liveLink: "https://muebleria-alpha.vercel.app/",
+  //   githubLink: "https://github.com/GersonIS/muebleria",
+  // },
   {
     name: "Ropa",
     description:
