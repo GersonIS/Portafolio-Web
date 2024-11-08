@@ -21,22 +21,32 @@ const projects = [
     githubLink: "https://github.com/GersonIS/Gildo-App",
   },
   {
+    name: "To Do",
+    description:
+      "Gestiona tareas de manera rapida con esta App y optimiza tu tiempo",
+    image: "/to-do.png",
+    liveLink: "https://to-do-pws.vercel.app/",
+    githubLink: "https://github.com/GersonIS/To-Do",
+  },
+  {
     name: "Inventario",
-    description: "Dashboard para llevar cuenta de existencias en almacen",
+    description:
+      "Dashboard para llevar cuenta de existencias en almacen y gestion correcta de tu negocio",
     image: "/project2.png",
     liveLink: "https://inventario-alpha.vercel.app/",
     githubLink: "https://github.com/GersonIS/Inventario",
   },
   {
     name: "Pokemon",
-    description: "Elige tus pokemones favoritos",
+    description: "Mira tus pokemones favoritos y diviertete eligiendolos",
     image: "/project3.png",
     liveLink: "https://pokemon-next-flame.vercel.app/",
     githubLink: "https://github.com/GersonIS/Pokemon-Next",
   },
   {
-    name: "Ferreteria(AGREGAR CONEXION A BD)",
-    description: "E-commerce para venta de productos de ferreteria",
+    name: "Ferreteria",
+    description:
+      "(AGREGAR CONEXION A BD) E-commerce para venta de productos de ferreteria",
     image: "/project4.png",
     liveLink: "https://anfabv.vercel.app/",
     githubLink: "https://github.com/GersonIS/TesisVenta",
