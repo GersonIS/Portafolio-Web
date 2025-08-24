@@ -6,6 +6,14 @@ import Image from "next/image";
 
 const projects = [
   {
+    name: "Software Cibersecurity Group",
+    description:
+      "Pagina para una empresa tecnologica de desarrollo de software, asesoria y mantenimiento de dispositivos",
+    image: "/scg.png",
+    liveLink: "https://scg-it.vercel.app/",
+    githubLink: "https://github.com/GersonIS/DCaramell",
+  },
+  {
     name: "Pasteleria",
     description:
       "Pagina para la realizacion de pedidos de una tienda de pasteleria y decoraciones",
